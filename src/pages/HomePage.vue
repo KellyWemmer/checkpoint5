@@ -1,36 +1,44 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo" class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10" v-for="p in posts" :key="p.id">
+        <PostCard :post="p"/>
+      </div>
     </div>
   </div>
 </template>
-
 <script>
-export default {
-  name: 'Home'
-}
-</script>
 
-<style scoped lang="scss">
-.home{
-  display: grid;
-  height: 80vh;
-  place-content: center;
-  text-align: center;
-  user-select: none;
-  .home-card{
-    width: 50vw;
-    > img{
-      height: 200px;
-      max-width: 200px;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-}
+
+import { computed } from '@vue/reactivity';
+import { onMounted } from 'vue';
+import { AppState } from '../AppState';
+import {postsService} from '../services/PostsService.js'
+import { logger } from '../utils/Logger';
+import Pop from '../utils/Pop';
+
+export default {
+    setup() {
+
+      async function getPosts() {
+        try {
+          await postsService.getPosts();
+        } catch (error) {
+          logger.error("Getting Posts", error)
+          Pop.error(error)
+          
+        }
+      }
+
+      onMounted(() => {
+        getPosts()
+      })
+        return {
+          posts: computed(() => AppState.posts)
+        };
+    },
+    
+};
+</script>
+<style>
 </style>

@@ -1,4 +1,4 @@
-export class ThreadPost {
+export class Post {
     constructor (data) {
         this.id = data.id || ''
         this.likeIds = data.likeIds 
