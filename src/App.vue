@@ -1,7 +1,7 @@
 <template>
-  <div>
-     
-  </div>
+  <header>
+    <Navbar />
+  </header>
   <main>
     <router-view />
   </main>
@@ -23,10 +23,5 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
-
-.left-bar {
-  height: 100vh;
-  width: 200px;
-}
 
 </style>
