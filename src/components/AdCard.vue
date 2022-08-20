@@ -1,12 +1,12 @@
 <template>
-<div class="ad-card p-2">
-    <div class="card-body">
-        <div class="ad-image">
-            <img :src="ad.square" alt="">
-            
-        </div>
+
+<div class="card-body">
+    <div class="ad-image">
+        <img :src="ad.square" alt="" >
+        
     </div>
 </div>
+
 </template>
 <script>
 
@@ -20,4 +20,8 @@ export default {
     };
 </script>
 <style>
+.ad-image img {
+    max-width: 200px;
+    max-height: 200px;
+}
 </style>

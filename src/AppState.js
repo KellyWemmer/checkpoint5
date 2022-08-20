@@ -18,4 +18,7 @@ export const AppState = reactive({
   /**@type {import('./models/Post.js').Post[]} */
   profilePosts: [],
 
+  newer: null,
+  older: null
+
 })

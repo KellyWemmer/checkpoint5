@@ -1,8 +1,10 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="col-12 d-flex navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+      <div class="d-flex text-center">
+        <!-- How to center the below name on navbar? -->
+        <h4><i><b>N</b></i>etwork</h4>
       </div>
     </router-link>
     <button
@@ -19,14 +21,11 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link
-            :to="{ name: 'About' }"
-            class="btn text-success lighten-30 selectable text-uppercase"
-          >
-            About
-          </router-link>
+          <!-- delete this list? -->
         </li>
       </ul>
+      <SearchForm />
+      
       <!-- LOGIN COMPONENT HERE -->
       <Login />
     </div>
@@ -34,10 +33,12 @@
 </template>
 
 <script>
+import SearchForm from './SearchForm.vue';
 export default {
-  setup() {
-    return {};
-  },
+    setup() {
+        return {};
+    },
+    components: { SearchForm }
 };
 </script>
 

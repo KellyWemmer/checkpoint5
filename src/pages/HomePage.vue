@@ -5,10 +5,30 @@
         <PostCard :post="p"/>
       </div>
     </div>    
-    <div class="col-12 col-md-1" v-for="a in ads" >
-      <AdCard :ad="a"/>
+    
+
+    <div class="row mb-5 pb-5">
+        <div class="col-6 text-end">
+          <button
+            @click="changePage(older)"
+            class="btn btn-outline-light w-50"
+            :disabled="!older"
+          >Older
+          </button>
+          
+        </div>
+
+        <div class="col-6">
+          <button
+            @click="changePage(newer)"
+            class="btn btn-outline-light w-50"
+            :disabled="!newer"
+          >Newer
+          </button>
+        </div>
     </div>
   </div>
+ 
 </template>
 <script>
 
@@ -17,7 +37,7 @@ import { computed } from '@vue/reactivity';
 import { onMounted } from 'vue';
 import { AppState } from '../AppState';
 import {postsService} from '../services/PostsService.js'
-import {adsService} from '../services/AdsService.js'
+
 import { logger } from '../utils/Logger';
 import Pop from '../utils/Pop';
 
@@ -32,27 +52,28 @@ export default {
           Pop.error(error)
           
         }
-      }
-
-      async function getAds() {
-        try {
-          await adsService.getAds();
-        } catch (error) {
-          logger.error("[Getting Ads]", error)
-          Pop.error(error)
-        }
-      }
+      }      
 
       onMounted(() => {
-        getPosts()
-        getAds()
-        logger.log("test1")
-      })
+        getPosts()               
+      });
+
         return {
           posts: computed(() => AppState.posts),
-          ads: computed(() => AppState.ads)
+         
+          newer: computed(() => AppState.newer),
+          older: computed(() => AppState.older),
+          async changePage(url) {
+            try {
+              await postsService.changePage(url)
+            } catch (error) {   
+            }
+          }
         };
     },
+
+    
+   
     
 };
 </script>
