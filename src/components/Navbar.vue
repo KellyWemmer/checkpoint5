@@ -6,6 +6,7 @@
         <h4><i><b>N</b></i>etwork</h4>
       </div>
     </router-link>
+    
     <button
       class="navbar-toggler"
       type="button"
@@ -17,13 +18,13 @@
     >
       <span class="navbar-toggler-icon" />
     </button>
+ 
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto">
-        <li>
-          <!-- delete this list? -->
-        </li>
+      <ul class="navbar-nav me-auto">        
       </ul>
+    <div class="pr-5">
       <SearchForm />
+    </div>
       
       <!-- LOGIN COMPONENT HERE -->
       <Login />

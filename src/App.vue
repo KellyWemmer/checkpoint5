@@ -4,19 +4,9 @@
   </header>
   
   <main>
-    <router-view />
-    <div class=" text-center ">
-      <div class="d-flex justify-content-center h-100">
-        <AdsCard />
-      </div>
-    </div>
+    <router-view />    
   </main>
-  <!-- <div class="left-bar text-center">
-      <div class="d-flex flex-column align-items-center justify-content-end
-       h-100 ">
-        <AdsCard />
-      </div>
-  </div>  -->
+  
     
 </template>
 
@@ -41,28 +31,8 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
-// .left-bar {
-//   height: 100vh;
-//   width: 200px;
-//   position: fixed;
-// }
-// @media screen and (max-width: 768px) {
-//   .left-bar {
-//     display: none;
-//   }
-// }
-
-// @media (min-width: 1400px){
-//   .left-bar {
-//     width: 100px;
-//     height: 100vh;
- 
-//     position: fixed;
-//   }
-// }
 
 main {
-  max-height: 100vh;
   overflow-y: auto;
   padding-bottom: 5rem;  
 }

@@ -1,9 +1,8 @@
 <template>
 
-<div class="col-md-6 container container-fluid card-body">
+<div class="card">
     <div class="ad-image img-fluid">
-        <img :src="ad.square" alt="" >
-        
+        <img :src="ad.square" alt="" >        
     </div>
 </div>
 

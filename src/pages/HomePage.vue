@@ -1,34 +1,38 @@
 <template>
+  
   <div class="container">
-    <div class="row">
-      <PostForm />
-    </div>
-    <div class="row">
-      <div class="col-12 col-md-9" v-for="p in posts" :key="p.id">
-        <PostCard :post="p"/>
+    <div class="row d-flex">
+      <div class="col-12 col-md-8">
+        <PostForm />
       </div>
-    </div>    
-    
+      <div class="col-12 col-md-8 rounded" v-for="p in posts" :key="p.id">
+        <PostCard :post="p"/>        
+      </div>     
+      <div class="col-2 align-items-center">
+          <AdsCard />
+      </div>      
+    </div>
+
+
 
     <div class="row mb-5 pb-5">
-        <div class="col-6 text-end">
-          <button
-            @click="changePage(older)"
-            class="btn btn-secondary w-50"
-            :disabled="!older"
-          >Older
-          </button>
-          
-        </div>
+      <div class="col-6 text-end p-3">
+        <button
+          @click="changePage(older)"
+          class="btn btn-secondary w-50"
+          :disabled="!older"
+        >Older
+        </button>          
+      </div>
 
-        <div class="col-6">
-          <button
-            @click="changePage(newer)"
-            class="btn btn-secondary w-50"
-            :disabled="!newer"
-          >Newer
-          </button>
-        </div>
+      <div class="col-6 p-3">
+        <button
+          @click="changePage(newer)"
+          class="btn btn-secondary w-50"
+          :disabled="!newer"
+        >Newer
+        </button>
+      </div>    
     </div>
   </div>
  

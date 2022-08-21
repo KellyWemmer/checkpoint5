@@ -2,45 +2,45 @@
     <div class="container">
       <form class="card account-form" @submit.prevent="handleSubmit">
       <div class="card-body text-start">
-        <div>
-          <label for="name">Name:</label>
+        <div class="p-1">
+          <label class="p-2" for="name">Name:</label>
           <input type="text" class="form-control" v-model="editable.name" required name="name">
         </div>
-        <div>
-          <label for="picture">Picture:</label>
+        <div class="p-1">
+          <label class="p-2" for="picture">Picture:</label>
           <input type="url" class="form-control" v-model="editable.picture" required name="picture" placeholder="picture">
         </div>
-        <div>
-          <label for="coverImg">Cover Image:</label>
+        <div class="p-1">
+          <label class="p-2" for="coverImg">Cover Image:</label>
           <input type="url" class="form-control" v-model="editable.coverImg" required name="coverImg">
         </div>
-        <div>
-          <label for="bio">Bio:</label>
+        <div class="p-1">
+          <label class="p-2" for="bio">Bio:</label>
           <textarea type="text" class="form-control" v-model="editable.bio" required name="bio" rows="8"
             style="resize:none"></textarea>
         </div>
-        <div>
-          <label for="github">GitHub:</label>
+        <div class="p-1">
+          <label class="p-2" for="github">GitHub:</label>
           <input type="url" class="form-control" v-model="editable.github" required name="github">
         </div>
-        <div>
-          <label for="linkedin">LinkedIn:</label>
+        <div class="p-1">
+          <label class="p-2" for="linkedin">LinkedIn:</label>
           <input type="url" class="form-control" v-model="editable.linkedin" required name="linkedin">
         </div>
-        <div>
-          <label for="resume">Resume:</label>
+        <div class="p-1">
+          <label class="p-2" for="resume">Resume:</label>
           <input type="url" class="form-control" v-model="editable.resume" required name="resume">
         </div> 
-        <div>
-          <label for="class">Class:</label>
+        <div class="p-1">
+          <label class="p-2" for="class">Class:</label>
           <input type="text" class="form-control" v-model="editable.class" required name="class">
         </div>
-        <div> 
-          <label for="graduated">Graduated</label>
+        <div class="p-1"> 
+          <label class="p-2" for="graduated">Graduated</label>
           <input type="checkbox" v-model="editable.graduated" name="class">
         </div>        
         <div>
-          <button type="submit" class="btn btn-primary w-100 mt-2">Save</button>
+          <button type="submit" class="btn btn-primary mt-2 p-2">Save</button>
         </div>
       </div>
     </form>

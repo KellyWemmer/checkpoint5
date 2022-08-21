@@ -1,21 +1,23 @@
 <template>
   <div v-if="user.isAuthenticated == true ">
-    <form @submit.prevent="handleSubmit()" class="post-form">
-      <h3 class="text-primary">Make a Post</h3>
-      <div class="row">
+    
+    <h3 class="text-primary pt-3">Make a Post</h3>      
+    <form @submit.prevent="handleSubmit()" class="post-form col-12">
 
-        <div class="col-4">
+        <div class="col-4 mb-2">
           <label class="form-label" for="body">Body</label>
           <input class="form-control" type="text" minlength="3" id="body" name="body" v-model="editable.body">
         </div>
 
-        <div class="col-4">
+        <div class="col-4 mb-2">
           <label class="form-label" for="imgUrl">Image Url</label>
-          <input class="form-control" type="text" id="imgUrl" name="imgUrl" v-model="editable.imgUrl">
-        </div>
-          <button type="submit" class="btn btn-primary w-100 p-2 mt-3 text-light">Submit</button>
-      </div>
+          <input class="form-control" type="text" id="imgUrl" name="imgUrl" v-model="editable.imgUrl">          
+        </div>  
+
+          <button type="submit" class="btn btn-primary p-2 mt-3 mb-4 text-light d-flex justify-content-center">Submit</button>       
     </form>
+    
+    
   </div>  
 </template>
 
