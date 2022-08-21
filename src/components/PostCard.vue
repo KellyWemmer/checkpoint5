@@ -1,7 +1,8 @@
 <template>
     <div class="post-card card m-2">
-        <div class="card-body ">
-            <p>{{post.createdAt}}</p>
+        <div class="card-body ">            
+            {{new Date(post.createdAt).toLocaleDateString('en-US')}}
+            
             <p>{{post.body}}</p>
             <img :src="post.imgUrl" class="img-fluid" alt="">
             

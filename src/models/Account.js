@@ -3,10 +3,10 @@ export class Account {
     this.id = data.id
     this.email = data.email
     this.name = data.name
-    this.picture = data.picture
-    this.class = data.class
+    this.picture = data.picture 
+    this.class = data.class || 'Private'
     this.graduated = data.graduated
-    this.bio = data.bio
+    this.bio = data.bio || ''
     this.github = data.github
     this.linkedin = data.linkedin
     this.resume = data.resume
