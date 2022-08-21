@@ -1,7 +1,7 @@
 <template>
 
-<div class="card-body">
-    <div class="ad-image">
+<div class="col-md-6 container container-fluid card-body">
+    <div class="ad-image img-fluid">
         <img :src="ad.square" alt="" >
         
     </div>
@@ -21,14 +21,9 @@ export default {
 </script>
 <style>
 .ad-image img {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 300px;
+    max-height: 300px;
 }
-@media (min-width: 1400px){
-    .ad-image img {
-        max-width: 100px;
-        max-height: 200px;
-    }
-}
+
 
 </style>

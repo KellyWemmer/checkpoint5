@@ -4,7 +4,10 @@
             {{new Date(post.createdAt).toLocaleDateString('en-US')}}
             
             <p>{{post.body}}</p>
-            <img :src="post.imgUrl" class="img-fluid" alt="">
+            <div class="d-flex justify-content-center container-fluid">
+                <img :src="post.imgUrl" class="img-fluid" alt="">
+            </div>
+            
             
             <div v-if="user.isAuthenticated == true">
                 <button @click="toggleLike">Like</button>

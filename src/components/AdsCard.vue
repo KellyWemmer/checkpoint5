@@ -1,5 +1,5 @@
 <template>
-    <div v-for="a in ads" >
+    <div v-for="a in ads" class="ad-row row p-3" >
         <AdCard :ad="a"/>
     </div>    
 </template>
@@ -29,5 +29,4 @@ export default {
 };
 </script>
 <style>
-
 </style>

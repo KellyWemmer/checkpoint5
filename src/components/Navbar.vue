@@ -3,7 +3,6 @@
     
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex text-center">
-        <!-- How to center the below name on navbar? -->
         <h4><i><b>N</b></i>etwork</h4>
       </div>
     </router-link>
