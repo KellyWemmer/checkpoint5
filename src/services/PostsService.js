@@ -1,4 +1,5 @@
 import { AppState } from "../AppState";
+import { Post } from "../models/Post";
 import { logger } from"../utils/Logger";
 import { bcwSandboxServer } from"./AxiosService";
 
@@ -56,6 +57,12 @@ class PostsService {
         AppState.older = res.data.older
         logger.log('newer', AppState.newer)
         logger.log('older', AppState.older)
+    }
+
+    async createPost(postData) {
+        const res = await bcwSandboxServer.post('/api/posts', postData)
+        AppState.posts.unshift(new Post(res.data))
+        logger.log("creating post", res.data)
     }
 }
 

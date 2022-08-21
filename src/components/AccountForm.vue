@@ -47,7 +47,7 @@
 
 <script>
 import { applyStyles } from '@popperjs/core';
-import { watchEffect } from 'vue';
+import { ref, watchEffect } from 'vue';
 import { AppState } from '../AppState';
 import { Profile } from '../models/Profile';
 import { router } from '../router';

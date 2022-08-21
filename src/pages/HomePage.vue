@@ -1,6 +1,9 @@
 <template>
   <div class="container">
     <div class="row">
+      <PostForm />
+    </div>
+    <div class="row">
       <div class="col-12 col-md-9" v-for="p in posts" :key="p.id">
         <PostCard :post="p"/>
       </div>
@@ -40,41 +43,36 @@ import {postsService} from '../services/PostsService.js'
 
 import { logger } from '../utils/Logger';
 import Pop from '../utils/Pop';
+import PostForm from '../components/PostForm.vue';
 
 export default {
     setup() {
-
-      async function getPosts() {
-        try {
-          await postsService.getPosts();
-        } catch (error) {
-          logger.error("[Getting Posts]", error)
-          Pop.error(error)
-          
-        }
-      }      
-
-      onMounted(() => {
-        getPosts()               
-      });
-
-        return {
-          posts: computed(() => AppState.posts),
-         
-          newer: computed(() => AppState.newer),
-          older: computed(() => AppState.older),
-          async changePage(url) {
+        async function getPosts() {
             try {
-              await postsService.changePage(url)
-            } catch (error) {   
+                await postsService.getPosts();
             }
-          }
+            catch (error) {
+                logger.error("[Getting Posts]", error);
+                Pop.error(error);
+            }
+        }
+        onMounted(() => {
+            getPosts();
+        });
+        return {
+            posts: computed(() => AppState.posts),
+            newer: computed(() => AppState.newer),
+            older: computed(() => AppState.older),
+            async changePage(url) {
+                try {
+                    await postsService.changePage(url);
+                }
+                catch (error) {
+                }
+            }
         };
     },
-
-    
-   
-    
+    components: { PostForm }
 };
 </script>
 <style>
