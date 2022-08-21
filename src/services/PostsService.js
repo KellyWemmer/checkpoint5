@@ -67,7 +67,10 @@ class PostsService {
 
     //Deleting posts!
     async deletePost(id) {
-       let url = `api/posts/`
+       let url = `api/posts/${id}`
+       await bcwSandboxServer.delete(url)
+       AppState.posts = AppState.posts.filter(p => p.id != id)
+
     }
 }
 
