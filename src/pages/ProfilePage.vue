@@ -13,13 +13,16 @@
             <h3>{{profile.name}}</h3>
             <p>Bio: {{profile.bio}}</p> 
             <p>Class: {{profile.class}}</p>
-            <div class="graduated" v-if="true">
+            <div class="graduated" v-if="profile.graduated">
                 <p>Status: Graduated</p>
             </div>
+            <div class="graduated" v-if="!profile.graduated">
+                <p>Status: Current Student</p>
+            </div>
             <div class="d-flex align-items-end">
-                <span class="mdi mdi-linkedin"></span>
-                <span class="mdi mdi-file-document-outline"></span>
-                <span class="mdi mdi-github"></span>
+                <a :href="profile.linkedin"><span class="mdi mdi-linkedin"></span></a>
+                <a :href="profile.resume"><span class="mdi mdi-file-document-outline"></span></a>
+                <a :href="profile.github"><span class="mdi mdi-github"></span></a>
             </div>
         </div>
     </div>
@@ -35,7 +38,7 @@
         <div class="col-6 text-end">
           <button
             @click="changePage(older)"
-            class="btn btn-outline-light w-50"
+            class="btn btn-secondary w-50"
             :disabled="!older"
           >Older
           </button>
@@ -45,7 +48,7 @@
         <div class="col-6">
           <button
             @click="changePage(newer)"
-            class="btn btn-outline-light w-50"
+            class="btn btn-secondary w-50"
             :disabled="!newer"
           >Newer
           </button>
@@ -98,7 +101,7 @@ export default {
         return {
             profile: computed(() => AppState.activeProfile),
             cover: computed(() => `url(${AppState.activeProfile?.coverImg || 'https://cdn.pixabay.com/photo/2017/07/16/17/33/background-2509983_1280.jpg'})`),
-            posts: computed(() => AppState.profilePosts),
+            posts: computed(() => AppState.posts),
             newer: computed(() => AppState.newer),
             older: computed(() => AppState.older),
             async changePage(url) {

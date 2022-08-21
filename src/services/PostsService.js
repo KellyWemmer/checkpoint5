@@ -22,7 +22,7 @@ class PostsService {
             }
         })
         logger.log('Logging posts for profiles from service', res.data.posts) //successful
-        AppState.profilePosts =  res.data.posts
+        AppState.posts =  res.data.posts
         AppState.newer = res.data.newer
         AppState.older = res.data.older
         logger.log('newer', AppState.newer)
@@ -52,7 +52,7 @@ class PostsService {
     }
     async changePageProfilePost(url) {
         const res = await bcwSandboxServer.get(url)
-        AppState.profilePosts = res.data.posts  
+        AppState.posts = res.data.posts  
         AppState.newer = res.data.newer
         AppState.older = res.data.older
         logger.log('newer', AppState.newer)
@@ -70,7 +70,13 @@ class PostsService {
        let url = `api/posts/${id}`
        await bcwSandboxServer.delete(url)
        AppState.posts = AppState.posts.filter(p => p.id != id)
+    }
 
+    async toggleLike(postId, postData) {
+        let url = `api/posts/${postId}/like`
+        const res = await bcwSandboxServer.post(url, postData)
+        const index = AppState.posts.findIndex(p => p.id == postId)
+        AppState.posts.splice(index, 1, new Post(res.data))
     }
 }
 

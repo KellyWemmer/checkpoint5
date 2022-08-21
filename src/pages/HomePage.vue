@@ -14,7 +14,7 @@
         <div class="col-6 text-end">
           <button
             @click="changePage(older)"
-            class="btn btn-outline-light w-50"
+            class="btn btn-secondary w-50"
             :disabled="!older"
           >Older
           </button>
@@ -24,7 +24,7 @@
         <div class="col-6">
           <button
             @click="changePage(newer)"
-            class="btn btn-outline-light w-50"
+            class="btn btn-secondary w-50"
             :disabled="!newer"
           >Newer
           </button>

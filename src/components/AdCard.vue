@@ -24,4 +24,11 @@ export default {
     max-width: 200px;
     max-height: 200px;
 }
+@media (min-width: 1400px){
+    .ad-image img {
+        max-width: 100px;
+        max-height: 200px;
+    }
+}
+
 </style>
