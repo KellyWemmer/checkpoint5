@@ -11,6 +11,7 @@
                 <router-link :to="{name: 'Profile', params: {id: post.creator.id}}">
                     <img :src="post.creator.picture" alt="">
                 </router-link>
+                <button class="btn btn-danger" @click="deletePost(post)">Delete</button>
             </div>            
         </div>
 
@@ -18,6 +19,9 @@
 </template>
 <script>
 import { Post } from '../models/Post';
+import { postsService } from '../services/PostsService';
+import { logger } from '../utils/Logger';
+import Pop from '../utils/Pop';
 
 
 export default {
@@ -25,9 +29,21 @@ export default {
         post: {type: Post, required: true}
     },
     setup() {
-        return {};
-        },
-    };
+        return {
+            async deletePost(post) {
+                try {
+                    const yes = await Pop.confirm('Are you sure you want to delete this post?')
+                    if(!yes) {return}
+                    await postsService.deletePost(post.id)
+                } catch (error) {
+                    logger.error('[Deleting Car]', error)
+                    Pop.error(error)
+                    
+                }
+            }
+        };
+    },
+};
 </script>
 <style lang="scss" scoped>
 .project-card {

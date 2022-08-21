@@ -64,6 +64,11 @@ class PostsService {
         AppState.posts.unshift(new Post(res.data))
         logger.log("creating post", res.data)
     }
+
+    //Deleting posts!
+    async deletePost(id) {
+       let url = `api/posts/`
+    }
 }
 
 export const postsService = new PostsService()
