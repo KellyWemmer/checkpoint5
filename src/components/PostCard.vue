@@ -9,10 +9,10 @@
             </div>
             
             
-            <div v-if="user.isAuthenticated == true">
-                <button @click="toggleLike">Like</button>
+            <div class="p-2" v-if="user.isAuthenticated == true">
+                <button class="btn btn-secondary" @click="toggleLike">Like</button>
             </div>
-            <div>
+            <div class="p-2">
                 <p>💙{{post.likeIds.length}}</p>
             </div>
             
