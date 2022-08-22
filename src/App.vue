@@ -11,15 +11,12 @@
 </template>
 
 <script>
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import { AppState } from './AppState';
 
 export default {
   name: 'App',
-  setup() {
-    
-
-      
+  setup() {      
 
     return {
       appState: computed(() => AppState),
@@ -27,6 +24,7 @@ export default {
     }
   }
 }
+
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";

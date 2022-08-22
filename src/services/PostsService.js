@@ -51,7 +51,7 @@ class PostsService {
         logger.log('newer', AppState.newer)
         logger.log('older', AppState.older)
     }
-    
+
     async changePageProfilePost(url) {
         const res = await bcwSandboxServer.get(url)
         AppState.posts = res.data.posts  
@@ -71,7 +71,6 @@ class PostsService {
         }
     }
 
-    //Deleting posts!
     async deletePost(id) {
        let url = `api/posts/${id}`
        await bcwSandboxServer.delete(url)

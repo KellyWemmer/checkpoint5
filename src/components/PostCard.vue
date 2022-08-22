@@ -6,12 +6,12 @@
             <p>{{post.body}}</p>
             <div class="d-flex justify-content-center container-fluid">
                 <img :src="post.imgUrl" class="img-fluid" alt="">
-            </div>
-            
+            </div>            
             
             <div class="p-2" v-if="user.isAuthenticated == true">
                 <button class="btn btn-secondary" @click="toggleLike">Like</button>
             </div>
+
             <div class="p-2">
                 <p>💙{{post.likeIds.length}}</p>
             </div>
@@ -27,9 +27,9 @@
                 </div>
             </div>            
         </div>
-
     </div>
 </template>
+
 <script>
 import { computed } from '@vue/reactivity';
 import { AppState } from '../AppState';
@@ -43,6 +43,7 @@ export default {
     props: {
         post: {type: Post, required: true}
     },
+
     setup(props) {
         return {
             user: computed(() => AppState.user), 
@@ -58,6 +59,7 @@ export default {
                     
                 }
             },
+
             async toggleLike() {
                 let currentId = this.account.id
                 let currentPost = props.post

@@ -5,6 +5,7 @@
       <div class="col-12 col-md-8">
         <PostForm />
       </div>
+      <!-- NOTE explain the below line -->
       <div class="col-12 col-md-8 rounded" v-for="p in posts" :key="p.id">
         <PostCard :post="p"/>        
       </div>     
@@ -12,8 +13,6 @@
           <AdsCard />
       </div>      
     </div>
-
-
 
     <div class="row mb-5 pb-5">
       <div class="col-6 text-end p-3">
@@ -47,7 +46,7 @@ import {postsService} from '../services/PostsService.js'
 
 import { logger } from '../utils/Logger';
 import Pop from '../utils/Pop';
-import PostForm from '../components/PostForm.vue';
+
 
 export default {
     setup() {
@@ -60,9 +59,12 @@ export default {
                 Pop.error(error);
             }
         }
+
         onMounted(() => {
             getPosts();
+
         });
+
         return {
             posts: computed(() => AppState.posts),
             newer: computed(() => AppState.newer),
@@ -76,7 +78,8 @@ export default {
             }
         };
     },
-    components: { PostForm }
+
+    // components: { PostForm }
 };
 </script>
 <style>
