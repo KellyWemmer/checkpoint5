@@ -2,8 +2,8 @@ export class Profile {
     constructor(data) {
         this.id = data.id
         this.name = data.name
-        this.picture = data.picture
-        this.class = data.class
+        this.picture = data.picture || 'No photo provided'
+        this.class = data.class || 'Private'
         this.graduated = data.graduated
         this.bio = data.bio
         this.github = data.github

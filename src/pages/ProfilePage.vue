@@ -21,9 +21,9 @@
                         <p>Status: Current Student</p>
                     </div>
                     <div class="d-flex align-items-end">
-                        <a :href="profile.linkedin"><span class="mdi mdi-linkedin"></span></a>
-                        <a :href="profile.resume"><span class="mdi mdi-file-document-outline"></span></a>
-                        <a :href="profile.github"><span class="mdi mdi-github"></span></a>
+                        <a :href="profile.linkedin" v-if="profile.linkedin"><span class="mdi mdi-linkedin"></span></a>
+                        <a :href="profile.resume" v-if="profile.linkedin"><span class="mdi mdi-file-document-outline"></span></a>
+                        <a :href="profile.github" v-if="profile.linkedin"><span class="mdi mdi-github"></span></a>
                     </div>            
                 </div>
             </div> 

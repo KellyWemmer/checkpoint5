@@ -1,6 +1,7 @@
 import { AppState } from "../AppState";
 import { Post } from "../models/Post";
 import { logger } from"../utils/Logger";
+import Pop from "../utils/Pop";
 import { bcwSandboxServer } from"./AxiosService";
 
 class PostsService {
@@ -50,6 +51,7 @@ class PostsService {
         logger.log('newer', AppState.newer)
         logger.log('older', AppState.older)
     }
+    
     async changePageProfilePost(url) {
         const res = await bcwSandboxServer.get(url)
         AppState.posts = res.data.posts  
@@ -60,9 +62,13 @@ class PostsService {
     }
 
     async createPost(postData) {
-        const res = await bcwSandboxServer.post('/api/posts', postData)
-        AppState.posts.unshift(new Post(res.data))
-        logger.log("creating post", res.data)
+        try {
+            const res = await bcwSandboxServer.post('/api/posts', postData)
+            AppState.posts.unshift(new Post(res.data))
+            logger.log("creating post", res.data)            
+        } catch (error) {
+          Pop.error("Please fill in the required information")
+        }
     }
 
     //Deleting posts!
