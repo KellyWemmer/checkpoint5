@@ -3,7 +3,7 @@
     <form @submit.prevent="searchPosts">
       <div class="input-group">
         <input class="form-control" type="text" required v-model="query" placeholder="search term"/>
-        <button class="btn btn-outline-success" type="submit">
+        <button class="btn btn-outline-success bg-dark" type="submit">
           <i class="mdi mdi-magnify"></i>
         </button>
       </div>
